@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\chartOfAccounts;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class ChartOfAccountsController extends Controller
 {
@@ -12,7 +13,10 @@ class ChartOfAccountsController extends Controller
      */
     public function index()
     {
-        //
+        $chartOfAccounts = chartOfAccounts::all();
+        return Inertia::render('ChartOfAccounts', [
+            'chartOfAccounts' => $chartOfAccounts
+        ]);
     }
 
     /**
